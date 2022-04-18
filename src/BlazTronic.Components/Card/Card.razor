@@ -1,0 +1,19 @@
+﻿@inherits BlazTronic.Components.Base.BlazTronicBase
+
+<div class="@_cardClass.AsString()" id="@Id">
+    <div class="@_cardHeaderClass.AsString()">
+        <h3 class="card-title">@Title</h3>
+        <div class="card-toolbar">
+            @Toolbar
+        </div>
+    </div>
+    <div class="@_cardBodyClass.AsString()">
+        @Body
+    </div>
+    @if (FooterContent != null)
+    {
+        <div class="card-footer">
+            @FooterContent
+        </div>
+    }
+</div>

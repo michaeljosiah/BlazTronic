@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazTronic.Components", "BlazTronic.Components\BlazTronic.Components.csproj", "{472C6305-505E-4FEE-B92A-C917EBCF9F42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazTronic.Web", "BlazTronic.Web\BlazTronic.Web.csproj", "{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{472C6305-505E-4FEE-B92A-C917EBCF9F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472C6305-505E-4FEE-B92A-C917EBCF9F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472C6305-505E-4FEE-B92A-C917EBCF9F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472C6305-505E-4FEE-B92A-C917EBCF9F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7AADE033-2F01-48B9-8C17-6213990B9F07}
+	EndGlobalSection
+EndGlobal

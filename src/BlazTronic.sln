@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazTronic.Components", "BlazTronic.Components\BlazTronic.Components.csproj", "{472C6305-505E-4FEE-B92A-C917EBCF9F42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazTronic.Components", "BlazTronic.Components\BlazTronic.Components.csproj", "{472C6305-505E-4FEE-B92A-C917EBCF9F42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazTronic.Web", "BlazTronic.Web\BlazTronic.Web.csproj", "{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazTronic.Web", "BlazTronic.Web\BlazTronic.Web.csproj", "{B1D51705-D3EE-4C3F-B8E7-0599FC5EEA81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

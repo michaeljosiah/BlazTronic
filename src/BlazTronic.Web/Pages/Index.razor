@@ -1,5 +1,7 @@
 ﻿@page "/"
 @using BlazTronic.Components.Card
+@using BlazTronic.Components.Select
+
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -15,6 +17,18 @@ Welcome to your new app.
     <p>This is the main content</p>
     <p>This is the main content</p>
     <p>This is the main content</p>
-    <p>This is the main content</p>
+    
+   
     </Body>
+
 </Card>
+<SelectCountry CountryCodes="_countryCodes"></SelectCountry>
+@code
+{
+    public string[] _countryCodes;
+    protected override async Task OnInitializedAsync()
+    {
+        _countryCodes = new[] {"ng","gb"};
+    }
+}
+

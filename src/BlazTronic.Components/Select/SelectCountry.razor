@@ -1,0 +1,65 @@
+﻿@using Microsoft.JSInterop
+@implements IAsyncDisposable
+@inject IJSRuntime _jsRuntime
+
+
+<select @ref="_countrySelect" 
+        class="form-select" 
+        placeholder="select country" 
+        id="kt_docs_select2_country"
+        @onchange="OnValueChanged">
+    @foreach (var option in _countryList)
+    {
+        <option value="@option.CountryCode" data-kt-select2-country="@option.FlagUrl">@option.Name</option>
+    }
+</select>
+
+@code {
+    private IJSObjectReference _module;
+    ElementReference _countrySelect;
+
+    [Parameter] public string[] CountryCodes { get; set; } = Array.Empty<string>();
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    private Country[] _countryList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var countryList = new List<Country>
+        {
+            new Country {Name = "Afghanistan", CountryCode = "AF", FlagUrl = "assets/media/flags/afghanistan.svg"},
+            new Country {Name = "Aland Islands", CountryCode = "AX", FlagUrl = "assets/media/flags/aland-islands.svg"},
+            new Country {Name = "Albania", CountryCode = "AL", FlagUrl = "assets/media/flags/albania.svg"},
+            new Country {Name = "American Samoa", CountryCode = "AS", FlagUrl = "assets/media/flags/American-Samoa.svg"},
+            new Country {Name = "Andorra", CountryCode = "AD", FlagUrl = "assets/media/flags/Andorra.svg"},
+            new Country {Name = "Anguilla", CountryCode = "AI", FlagUrl = "assets/media/flags/Anguilla.svg"},
+            new Country {Name = "Antigua and Barbuda", CountryCode = "AG", FlagUrl = "assets/media/flags/Antigua-and-Barbuda.svg"},
+            new Country {Name = "Argentina", CountryCode = "AR", FlagUrl = "assets/media/flags/Argentina.svg"},
+            new Country {Name = "Armenia", CountryCode = "AM", FlagUrl = "assets/media/flags/Armenia.svg"},
+            new Country {Name = "Nigeria", CountryCode = "NG", FlagUrl = "assets/media/flags/Nigeria.svg"},
+            new Country {Name = "Niue", CountryCode = "NU", FlagUrl = "assets/media/flags/niue.svg"},
+            new Country {Name = "Norfolk Island", CountryCode = "NF", FlagUrl = "assets/media/flags/Norfolk-Island.svg"},
+            new Country {Name = "United Kingdom", CountryCode = "GB", FlagUrl = "assets/media/flags/united-kingdom.svg"},
+            new Country {Name = "Zambia", CountryCode = "ZM", FlagUrl = "assets/media/flags/zambia.svg"},
+            new Country {Name = "Zimbabwe", CountryCode = "ZW", FlagUrl = "assets/media/flags/Zimbabwe.svg"},
+        };
+
+        _countryList = CountryCodes.Any() ? countryList.Where(x => CountryCodes.Any(c => c.Equals(x.CountryCode,StringComparison.OrdinalIgnoreCase))).ToArray() : countryList.ToArray();
+        await Task.CompletedTask;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _module = await _jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/BlazTronic.Components/js/select2-wrapper.js");
+            await _module.InvokeVoidAsync("buildCountrySelect",_countrySelect);
+        }
+    }
+
+    private Task OnValueChanged(ChangeEventArgs e)
+    {
+        return ValueChanged.InvokeAsync(e.Value?.ToString());
+    }
+    async ValueTask IAsyncDisposable.DisposeAsync() => await _module.DisposeAsync();
+}
+
